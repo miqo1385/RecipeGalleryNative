@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, Button } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const DATA = [
   {
@@ -13,24 +14,24 @@ const DATA = [
     description: 'Empanadas de Pino'
   },
   {
-      id: 3,
-      url:'https://weheartliving.com/wp-content/uploads/2015/10/MAIN-tomatican.jpg',
-      description: 'Tomatican'
+    id: 3,
+    url:'https://weheartliving.com/wp-content/uploads/2015/10/MAIN-tomatican.jpg',
+    description: 'Tomatican'
   },
   {
-      id: 4,
-      url:'https://www.chileanfoodandgarden.com/wp-content/uploads/2008/03/charquican-12-scaled.jpg',
-      description: 'Charquican'
+    id: 4,
+    url:'https://www.chileanfoodandgarden.com/wp-content/uploads/2008/03/charquican-12-scaled.jpg',
+    description: 'Charquican'
   },
   {
-      id: 5,
-      url:'https://blog.amigofoods.com/wp-content/uploads/2022/05/chilean-seafood-stew.jpg',
-      description: 'Paila Marina'
+    id: 5,
+    url:'https://blog.amigofoods.com/wp-content/uploads/2022/05/chilean-seafood-stew.jpg',
+    description: 'Paila Marina'
   },
   {
-      id: 6,
-      url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Pantrucas_plato.jpg/640px-Pantrucas_plato.jpg',
-      description: 'Pancutras'
+    id: 6,
+    url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Pantrucas_plato.jpg/640px-Pantrucas_plato.jpg',
+    description: 'Pancutras'
   }
 ];
 
@@ -47,12 +48,33 @@ const Gallery = () => {
 
   return (
     <View>
-      <Image style={{ height: 300, width: 300 }} source={{ uri: DATA[imageVar].url }} />
-      <Text>{imageVar}: {DATA[imageVar].description}</Text>
-      <Button onPress={handleNextPress} title="Next" />
-      <Button onPress={handlePrevPress} title="Prev" />
+      <Image style={styles.image} source={{ uri: DATA[imageVar].url }} />
+      <Text style={styles.tex}>{imageVar}: {DATA[imageVar].description}</Text>
+      <Button style={styles.tex} onPress={handleNextPress} title="Next" />
+      <Button style={styles.tex} onPress={handlePrevPress} title="Prev" />
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  image: {
+    height: 300,
+    width: 300,
+    backgroundColor: '#F5FCFF',
+    borderColor: '#0099AA',
+    borderWidth: 2,
+    marginTop: 40,
+    alignSelf: 'center' 
+  },
+
+  tex: {
+    borderColor: '#AA0099',
+    borderWidth: 2,
+    textAlign: 'center',
+    fontSize: 24,
+    marginTop: 10 // Adjust this value as needed
+  }
+});
+
 export default Gallery;
+
